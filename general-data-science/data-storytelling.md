@@ -8,8 +8,7 @@
 
 ```
 Goal of Data Storytelling
-: for the audience to be inspired/stimulated/induced to make a call of action
-
+: to communicate your top insights and for the audience to be inspired to immediately make a call of action
 ```
 ### Concepts
 - Exploratory Data Analysis vs Explanatory Data Anlaysis
@@ -32,6 +31,6 @@ Goal of Data Storytelling
 
 ### Craft Narrative: Components to Consider
 
-A. Plot : What context is essential?
-B. Twist : What is interesting about the data? What it shows?
-C. Ending : What do you want your audience to do?
+A. Plot : What context is essential?  
+B. Twist : What is interesting about the data? What it shows?  
+C. Ending : What do you want your audience to do?  
