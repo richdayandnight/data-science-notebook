@@ -29,3 +29,18 @@ My personal notes from the book :)
   - line
   - text
   - path
+
+- Styling SVG Elements
+  - fill
+  - stroke
+  - stroke-width
+  - opacity (transparent to opaque)
+  - font-family
+  - font-size
+
+
+## Extra note on Compatibility
+- Use **Modernizr** or a similar JavaScript tool to detect whether or not the browser supports SVG.
+  -  If it does, then you can load your D3 code and proceed
+as normal. 
+    - If SVG is not supported, then you can display a static, noninteractive version of your visualization alongside a message explaining that a current browser is needed.
