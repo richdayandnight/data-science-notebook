@@ -9,7 +9,7 @@ My personal notes from the book :)
  - Warning: Visualization like words, can be used to lie, mislead, or distort the truth!
 
 ## Why interactive?
-    - Dynamic, interactive visualizations can empower people to explroe the data for themselves.
+    - Dynamic, interactive visualizations can empower people to explore the data for themselves.
     - History: Ben Shneiderman (in 1996) of Univ. of Maryland proposed the design pattern of “Visual Information-Seeking Mantra”: overview first, zoom and filter, then details-on demand.
 
 ## Why on the Web?
