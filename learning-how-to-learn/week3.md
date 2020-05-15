@@ -43,3 +43,27 @@
 - Law of Serendipity 
   - lady luck favors the one who tries
 
+
+## Memory
+- outstanding viusal and spacial memory system
+- 2 things should happen to move things from our working memory to our long-term memory
+1. must be memorable
+2. must be repeated
+
+
+hippos - horse
+campus - sea monster
+## Hippocampus 
+
+## Reconsolidation
+- occurs during sleep
+
+## Astrocytes
+- provide nutrients to neurons
+- maintain extracellular ion balance
+- involved in repair after injuy
+- have a role in learning
+
+# Learning Techniques
+- Mnemonics
+- Memory Palace
