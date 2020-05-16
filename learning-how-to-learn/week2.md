@@ -42,6 +42,9 @@
 - deliberately focusing on the difficult material
 - Einstelling - phenomenon 
     -  your initial intuition about what's happening or what you need to be doing is misleading
+> Philosopher of science Thomas Kuhn discovered that most paradigm shifts in science are brought about either young people or people who were originally trained in a different discipline. They're not so
+easily trapped by einstellung, blocked thoughts due to their preceding training. And of course there's the old saying that science progresses one funeral at a time
+as people entrenched in the old ways of looking at things die off. 
 - jumping into the water without knowing how to swim
 
 # Interleaving
