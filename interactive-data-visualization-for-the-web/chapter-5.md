@@ -24,6 +24,8 @@ python -m SimpleHTTPServer 8888 &.
 - When you chain methods together, anytime after you
 call data(), you can create an **anonymous function** that accepts d as input.
 
+## Define terms
+- Anonymous function - a function without a name
 ## Loading data
   1. d3.csv("food.csv", rowConverter).then(function(data){
         console.log(data);
