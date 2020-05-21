@@ -18,5 +18,3 @@
     
 </style>
 ```
-
-# left at page 97
