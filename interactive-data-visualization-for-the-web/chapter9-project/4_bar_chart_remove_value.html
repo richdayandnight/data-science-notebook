@@ -16,8 +16,7 @@
     </head>
     <body>
         <p>
-            Click on this text to update the chart with new data values as many
-            times as you like!
+            Click on this text to remove a data from the chart!
         </p>
         <script type="text/javascript">
             var dataset = []; //Initialize empty array
@@ -83,6 +82,7 @@
                         return h - yScale(d) - 10;
                     }
                 })
+                .attr("text-anchor", "middle")
                 .attr("font-family", "sans-serif")
                 .attr("font-size", "11px")
                 .attr("fill", function(d) {
@@ -95,39 +95,74 @@
                 .attr("text-anchor", "middle");
 
             d3.select("p").on("click", function() {
-                //New values for dataset
-                var numValues = dataset.length;
-                dataset = [];
-                for (var i = 0; i < numValues; i++) {
-                    var newNumber = Math.floor(Math.random() * maxValue);
-                    dataset.push(newNumber); //Add new number to array
-                }
+                //Remove one value from dataset
+                dataset.shift();
 
-                //Update scale domain
-                //Recalibrate the scale domain, given the new max value in dataset
-                yScale.domain([0, d3.max(dataset)]);
+                //Update scale domains
+                xScale.domain(d3.range(dataset.length)); //Recalibrate the x scale domain, given the new length of dataset
+                yScale.domain([0, d3.max(dataset)]); //Recalibrate the y scale domain, given the new max value in dataset
 
-                svg.selectAll("rect")
-                    .data(dataset)
+                var bars = svg.selectAll("rect").data(dataset);
+                bars.enter()
+                    .append("rect")
+                    .attr("x", function(d) {
+                        return w;
+                    })
+                    .attr("y", function(d) {
+                        return h - yScale(d);
+                    })
+                    .merge(bars)
                     .transition()
+
                     .delay(function(d, i) {
                         return (i / dataset.length) * 1000;
                     })
                     .duration(500)
                     .ease(d3.easeCubicInOut)
+                    .attr("x", function(d, i) {
+                        //Set new x position, based on the updated xScale
+                        return xScale(i);
+                    })
                     .attr("y", function(d) {
                         return h - yScale(d);
                     })
                     .attr("height", function(d) {
                         return yScale(d);
                     })
+                    .attr("width", xScale.bandwidth())
                     .attr("fill", function(d) {
                         // <-- Down here!
                         return "rgb(0, 0, " + Math.round(d * 10) + ")";
                     });
 
-                svg.selectAll("text")
-                    .data(dataset)
+                //Exit…
+                bars.exit() //References the exit selection (a subset of the update selection)
+                    .transition() //Initiates a transition on the one element we're deleting
+                    .duration(500)
+                    .attr("x", w) //Move past the right edge of the SVG
+                    .remove(); //Deletes this element from the DOM once transition is complete
+
+                var textVar = svg.selectAll("text").data(dataset);
+                textVar
+                    .enter()
+                    .append("text")
+                    .text(function(d) {
+                        return Math.round(d);
+                    })
+                    .attr("text-anchor", "middle")
+                    .attr("font-family", "sans-serif")
+                    .attr("font-size", "11px")
+                    .attr("x", function(d) {
+                        return w + xScale(1);
+                    })
+                    .attr("y", function(d) {
+                        if (d > heightPartition) {
+                            return h - yScale(d) + 14;
+                        } else {
+                            return h - yScale(d) - 10;
+                        }
+                    })
+                    .merge(textVar)
                     .transition()
                     .delay(function(d, i) {
                         return (i / dataset.length) * 1000;
@@ -154,6 +189,13 @@
                             return "black";
                         }
                     });
+
+                textVar
+                    .exit()
+                    .transition()
+                    .duration(500)
+                    .attr("x", w)
+                    .remove();
             });
         </script>
     </body>

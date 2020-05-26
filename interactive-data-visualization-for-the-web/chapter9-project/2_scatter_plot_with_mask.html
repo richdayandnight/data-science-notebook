@@ -83,7 +83,7 @@
 			svg.append("g") //Create new g
 				.attr("id", "circles") //Assign ID of 'circles'
 				.attr("clip-path", "url(#chart-area)")
-				.selectAll("circle") // <-- No longer "rect"
+				.selectAll("circle")
 				.data(dataset)
 				.enter()
 				.append("circle")

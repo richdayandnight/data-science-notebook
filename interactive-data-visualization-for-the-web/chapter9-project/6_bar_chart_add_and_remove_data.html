@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>D3 Page Template</title>
+        <script type="text/javascript" src="d3.js"></script>
+        <style type="text/css">
+            div.bar {
+                display: inline-block;
+                background-color: teal;
+                height: 75px;
+                width: 20px;
+                margin-right: 2px;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="add">
+            Click on this text to add a data from the chart!
+        </p>
+        <p id="remove">
+            Click on this text to remove a data from the chart!
+        </p>
+        <script type="text/javascript">
+            var dataset = [
+                { key: 0, value: 5 },
+                { key: 1, value: 10 },
+                { key: 2, value: 13 },
+                { key: 3, value: 19 },
+                { key: 4, value: 21 },
+                { key: 5, value: 25 },
+                { key: 6, value: 22 },
+                { key: 7, value: 18 },
+                { key: 8, value: 15 },
+                { key: 9, value: 13 },
+                { key: 10, value: 11 },
+                { key: 11, value: 12 },
+                { key: 12, value: 15 },
+                { key: 13, value: 20 },
+                { key: 14, value: 18 },
+                { key: 15, value: 17 },
+                { key: 16, value: 16 },
+                { key: 17, value: 18 },
+                { key: 18, value: 23 },
+                { key: 19, value: 25 }
+            ];
+            var w = 600;
+            var h = 250;
+            var padding = 20;
+            var barPadding = 1;
+            var xScale = d3
+                .scaleBand()
+                .domain(d3.range(dataset.length))
+                .rangeRound([0, w])
+                .paddingInner(0.05);
+
+            var yScale = d3
+                .scaleLinear()
+                .domain([
+                    0,
+                    d3.max(dataset, function(d) {
+                        return d.value;
+                    })
+                ])
+                .range([0, h]);
+
+            var key = function(d) {
+                return d.key;
+            };
+            var svg = d3
+                .select("body")
+                .append("svg")
+                .attr("width", w)
+                .attr("height", h);
+            var heightPartition = 2;
+
+            svg.selectAll("rect")
+                .data(dataset, key)
+                .enter()
+                .append("rect")
+                .attr("x", function(d, i) {
+                    return xScale(i);
+                })
+                .attr("y", function(d) {
+                    return h - yScale(d.value);
+                })
+                .attr("width", xScale.bandwidth())
+                .attr("height", function(d) {
+                    return yScale(d.value);
+                })
+                .attr("fill", function(d) {
+                    return "rgb(0, 0, " + Math.round(d.value * 10) + ")";
+                });
+
+            svg.selectAll("text")
+                .data(dataset, key)
+                .enter()
+                .append("text")
+                .text(function(d) {
+                    return Math.round(d.value);
+                })
+                .attr("x", function(d, i) {
+                    return xScale(i) + xScale.bandwidth() / 2;
+                })
+                .attr("y", function(d) {
+                    if (d.value > heightPartition) {
+                        return h - yScale(d.value) + 14;
+                    } else {
+                        return h - yScale(d.value) - 10;
+                    }
+                })
+                .attr("text-anchor", "middle")
+                .attr("font-family", "sans-serif")
+                .attr("font-size", "11px")
+                .attr("fill", function(d) {
+                    if (d.value > heightPartition) {
+                        return "white";
+                    } else {
+                        return "black";
+                    }
+                });
+
+            d3.selectAll("p").on("click", function() {
+                //Remove one value from dataset
+                var paragraphID = d3.select(this).attr("id");
+                if (paragraphID == "add") {
+                    //Add a data value
+                    var minValue = 2;
+                    var maxValue = 25 - minValue;
+                    var newNumber =
+                        Math.floor(Math.random() * maxValue) + minValue;
+                    var lastKeyValue = dataset[dataset.length - 1].key;
+                    dataset.push({
+                        key: lastKeyValue + 1,
+                        value: newNumber
+                    });
+                } else {
+                    dataset.shift();
+                }
+
+                //Update scale domains
+                xScale.domain(d3.range(dataset.length)); //Recalibrate the x scale domain, given the new length of dataset
+                yScale.domain([
+                    0,
+                    d3.max(dataset, function(d) {
+                        return d.value;
+                    })
+                ]);
+
+                var bars = svg.selectAll("rect").data(dataset, key);
+                bars.enter()
+                    .append("rect")
+                    .attr("x", function(d) {
+                        return w;
+                    })
+                    .attr("y", function(d) {
+                        return h - yScale(d.value);
+                    })
+                    .merge(bars)
+                    .transition()
+
+                    .delay(function(d, i) {
+                        return (i / dataset.length) * 1000;
+                    })
+                    .duration(500)
+                    .ease(d3.easeCubicInOut)
+                    .attr("x", function(d, i) {
+                        //Set new x position, based on the updated xScale
+                        return xScale(i);
+                    })
+                    .attr("y", function(d) {
+                        return h - yScale(d.value);
+                    })
+                    .attr("height", function(d) {
+                        return yScale(d.value);
+                    })
+                    .attr("width", xScale.bandwidth())
+                    .attr("fill", function(d) {
+                        // <-- Down here!
+                        return "rgb(0, 0, " + Math.round(d.value * 10) + ")";
+                    });
+
+                //Exit…
+                bars.exit() //References the exit selection (a subset of the update selection)
+                    .transition() //Initiates a transition on the one element we're deleting
+                    .duration(500)
+                    .attr("x", -xScale.bandwidth()) //Move past the right edge of the SVG
+                    .remove(); //Deletes this element from the DOM once transition is complete
+
+                var textVar = svg.selectAll("text").data(dataset, key);
+                textVar
+                    .enter()
+                    .append("text")
+                    .text(function(d) {
+                        return Math.round(d.value);
+                    })
+                    .attr("text-anchor", "middle")
+                    .attr("font-family", "sans-serif")
+                    .attr("font-size", "11px")
+                    .attr("x", function(d) {
+                        return w + xScale(1);
+                    })
+                    .attr("y", function(d) {
+                        if (d.value > heightPartition) {
+                            return h - yScale(d.value) + 14;
+                        } else {
+                            return h - yScale(d.value) - 10;
+                        }
+                    })
+                    .merge(textVar)
+                    .transition()
+                    .delay(function(d, i) {
+                        return (i / dataset.length) * 1000;
+                    })
+                    .duration(500)
+                    .ease(d3.easeCubicInOut)
+                    .text(function(d) {
+                        return d.value;
+                    })
+                    .attr("x", function(d, i) {
+                        return xScale(i) + xScale.bandwidth() / 2;
+                    })
+                    .attr("y", function(d) {
+                        if (d.value > heightPartition) {
+                            return h - yScale(d.value) + 14;
+                        } else {
+                            return h - yScale(d.value) - 10;
+                        }
+                    })
+                    .attr("fill", function(d) {
+                        if (d.value > heightPartition) {
+                            return "white";
+                        } else {
+                            return "black";
+                        }
+                    });
+
+                textVar
+                    .exit()
+                    .transition()
+                    .duration(500)
+                    .attr("x", -xScale.bandwidth())
+                    .remove();
+            });
+        </script>
+    </body>
+</html>

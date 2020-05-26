@@ -80,6 +80,28 @@ interrupt and override older transitions."
 circles or any other visual elements).
 3. Add a reference to the clipPath from whatever element(s) you wish to be
 masked.
+
+## Other Kinds of Data Updates
+### Adding Values
+1. push data to dataset
+2. update scale domains
+3. `element = svg.selectAll()→data()`: select visual elements necessary and rebind these to the dataset
+4. `element.enter()→append()→attr()→merge()→transition()→ etcetera()`
+
+### Removing Values
+1. remove value from dataset (it can be using `dataset.shift()`: removes first value from the dataset or `dataset.pop()`)
+2. update scale domains
+3. `element = svg.selectAll()→data()`: select visual elements necessary and rebind these to the dataset
+4. `element.enter()→append()→attr()→merge()→transition()→ etcetera()`
+5. `element.exit()→transition()→remove()`
+
+### Data Joins
+- A data join happens whenever you bind data to DOM elements; that is, every time you call `data()`
+- Types of join:
+  - index join (default join) - first data value is bound to the first DOm element in the selection
+  - other custom join - this is done through a **key function**
+### Object Constancy?
+
 ## Notes
 - Rounding float pixel values like 12.123 to 12, using `d3.round(true)` has a net effect similar with `shape-rendering: crispEdges`. "This is helpful for keeping visual elements lined up precisely on the pixel grid for clean, sharp edges."
 - Fuzzy bars may be due to antialiasing the half-pixel values
@@ -87,3 +109,4 @@ masked.
 unexpected and undesirable behavior. Make sure that attributes in the post-transition is existing the in the pre-transition
 - Avoid putting **magic numbers**/ constant numbers that are chosen arbitrarily all over your code. Rather, put them inside variables. 
 - Code with scalability in mind.
+- `d3.selectAll("*").remove()` to remove all values
