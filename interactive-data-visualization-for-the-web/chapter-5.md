@@ -1,11 +1,10 @@
 # Interactive Data Visualization for the Web
 # Chapter 5: Data
 
-Data must be bound to elements within the page
+## Data must be bound to elements within the page
 
-python3 -m http.server 8888 &.
-
-python -m SimpleHTTPServer 8888 &.
+## To run a server
+`python3 -m http.server 8888 & .`
 
 ## Chaining Methods
     - handoff
