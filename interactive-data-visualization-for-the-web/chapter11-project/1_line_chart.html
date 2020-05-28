@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>D3: Click to log the data values to the console</title>
+        <script type="text/javascript" src="../d3.js"></script>
+        <style type="text/css">
+            .line {
+                fill: none;
+                stroke: teal;
+                stroke-width: 0.5;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="tooltip" class="hidden"></div>
+        <script type="text/javascript">
+            var h = 300;
+            var w = 800;
+            var padding = 40;
+            var formatTime = d3.timeFormat("%Y");
+            var dataset, xScale, yScale, valueLine; //Empty, for now
+
+            var x = d3.scaleTime().range([padding, w]);
+            var y = d3.scaleLinear().range([h-padding, 0]);
+
+            //Define line generator
+            var valueLine = d3
+                .line()
+                .defined(function(d) { return d.average >= 0; })
+                .x(function(d) {
+                    return x(d.date);
+                })
+                .y(function(d) {
+                    return y(d.average);
+                });
+
+            //Define axes
+            var xAxis = d3
+                .axisBottom()
+                .scale(x)
+                .ticks(10)
+                .tickFormat(formatTime);
+
+            //Define Y axis
+            var yAxis = d3
+                .axisLeft()
+                .scale(y)
+                .ticks(10);
+
+            d3.csv("mauna_loa_co2_monthly_averages.csv").then(function(data) {
+                var parseDate = d3.timeParse("%Y %m");
+                data.forEach(function(d) {
+                    d.date = parseDate(d.year + " " + d.month);
+                    d.average = +d.average;
+                });
+                console.table(data, ["date", "average"]);
+
+                x.domain(
+                    d3.extent(data, function(d) {
+                        return d.date;
+                    })
+                );
+                y.domain([
+                    0,
+                    d3.max(data, function(d) {
+                        return d.average;
+                    })
+                ]);
+
+                //Create SVG element
+                var svg = d3
+                    .select("body")
+                    .append("svg")
+                    .attr("width", w)
+                    .attr("height", h);
+                //Create line
+                svg.append("path")
+                    .data([data])
+                    .attr("class", "line")
+                    .attr("d", valueLine);
+
+                //Create axes
+                svg.append("g")
+                    .attr("class", "axis")
+                    .attr("transform", "translate(0," + (h - padding) + ")")
+                    .call(xAxis);
+
+                svg.append("g")
+                    .attr("class", "axis")
+                    .attr("transform", "translate(" + padding + ",0)")
+                    .call(yAxis);
+            });
+        </script>
+    </body>
+</html>
