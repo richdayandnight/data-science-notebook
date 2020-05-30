@@ -1,7 +1,9 @@
-# Chunking
+# Learning How to Learn - Week 2
+
+## Chunking
 
 - conceptual chunks
-- chunk means anetwork of neurons that are used to firing together
+- chunk means a network of neurons that are used to firing together
     - focused practice and repetition helps you tou create chunks
     - after being given out a sample solution, don't focus too much on how an individual step works, but you should also focus on the connection between the steps (why this particular step is the next thing you should do)
 - How to make a chunk
@@ -16,13 +18,13 @@
         - after learning a material, just recall (Karpicke research)
         - by simply practicing and recalling the material -> learn far more and at a much deeper level than just rereading only
 
-# Illusion of Competence
+## Illusion of Competence
 - seeing a solution and thinking you understand it yourself
 - only doing it yourself and recalling 
 - underlining and adding notes is better than highlighting (highlighting provides the illusion that you know the material)
 - learning outside your usual study place helps (since you get subliminal cues from your study place)
 
-# What motivates you?
+## What motivates you?
 - Neuromodulators
     - Acetylcholine
     - dopamine
@@ -31,12 +33,12 @@
         - closely link to risk taking behavior
 - emotions is intertwined with learning
 
-# library of neural patterns
+## library of neural patterns
 - consulting people
 - Chunks can help you understand new concepts through a process called **transfer**
 - Law of Serendipity
 
-# Overlearning
+## Overlearning
 - 70 hours practice for a 20 minute ted
 - overfitting, illusion of competence, mastering the easy stuff
 - deliberately focusing on the difficult material
@@ -47,9 +49,9 @@ easily trapped by einstellung, blocked thoughts due to their preceding training.
 as people entrenched in the old ways of looking at things die off. 
 - jumping into the water without knowing how to swim
 
-# Interleaving
+## Interleaving
 - mix up learning
 - look ahead
 
 interleaving - building flexibility and creativity
-practie and repetition - helping to build solid neural patterns
+practice and repetition - helping to build solid neural patterns

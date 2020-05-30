@@ -1,4 +1,6 @@
-# 2 Thinking Modes 
+# Learning How to Learn - Week 1
+
+## 2 Thinking Modes 
 1. Focused
 2. Diffused
 
@@ -17,7 +19,7 @@ When preparing for a weight-lifting competition, one does not slack off and wait
 Practice makes Permanent
 ```
 ## Brain
-- A 3-pound organt that consumes 10 times more energy by weight than the rest of the body
+- A 3-pound organ that consumes 10 times more energy by weight than the rest of the body
 - There's constant turnover in the single connections between neurons called synapses (We're a new person when we sleep and wake up)
 - Q: According to the video, what happens on the dendrites of neurons when you learn something new?
 
@@ -44,6 +46,6 @@ A; Many new synapses (connections) are formed on the dendrites.
 - 2 top methods of learning:
   - Learning by doing
   - Learning by osmosis
-- Success in life  reached through passion and persistence
+- Success in life reached through passion and persistence
 
 

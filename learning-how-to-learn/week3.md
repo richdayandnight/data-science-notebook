@@ -1,21 +1,23 @@
-# Procrastination
+# Learning How to Learn - Week 3
+
+## Procrastination
 - a **keystone** habit that influences many aspects of our life
 - Arsenic analogy on procastination  
 > In tiny doses, arsenic doesn't seem harmful. You can even build up an immunity to its effects. This can allow you to take large doses and look healthy even as the poison is slowly increasing yourrisk of cancr and ravaging your organs.
 > When you procrastinate, you feel better--but only temporarily. In this, procrastination shares common features with addiction.
 
-# Habits
+## Habits
 1. Cue
 2. Routine
 3. Reward
 4. Belief
    
-# Focus on Process not Product
+## Focus on Process not Product
 - Product is what triggers the pain
 - Non-procrastinators tell themselves to just get on with it and quite wasting time whenever they start a task
 - Stop judging self with the progress
 
-# The Habit loop
+## The Habit loop
 1. Cue
    1. Categories
       1. location
@@ -32,7 +34,7 @@
    1. belief that your new system works
 
 
-# Recommended Solutions
+## Recommended Solutions
 - Brief Weekly list of key tasks
 - Then each day at night write down a to do list
 - Plan your quitting time
