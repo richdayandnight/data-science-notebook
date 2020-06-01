@@ -18,3 +18,23 @@
     1) using Pomodoro to help ease the uncomfortable feeling when starting a task
     2) planning the quitting time
     3) creating a daily planner, one where you write your plans/todos the night before so your brain subconsciously prepares yourself to allocate proper resources/time the next day
+7. What is the virtue of the less brilliant?
+    - perseverance
+8. How do you prepare for a test? 
+    - According to Richard Felder, you need to at least do the following to get a "measurement" of [how well-prepared you are](https://barbaraoakley.com/wp-content/uploads/2018/02/Test-preparation-checklist-1.pdf) for an upcoming test.
+    1. Did you make a serious effort to understand the text?
+    2. Did you work with classmates on homework problems?
+    3. Did you attempt to outline every homework problem solution?
+    4. Did you participate actively in homework group discussions?
+    5. Did you consult with the instructor?
+    6. Did you understand all of your homework problem solutions?
+    7. Did you ask in class for explanations of homework problem solutions that weren't clear to you?
+    8. Did you follow your study guide?
+    9. Did you attempt to outline lots of problem solutions quickly?
+    10. Did you go over the study guide and problems with classsmates and quiz one another?
+    11. If there was a review session before the test, did you attended and asked questions about anything you weren't sure about?
+    12. Did you get a reasonable night's sleep before the test?
+9. What is the law of serendipity?
+  - Lady luck favors the one who tries.
+10. Does changing your thoughts change the way you perceive life?
+    - Yes.  If you change your thoughts, you can really truly change your life (non-verbatim) - Santiago Ramón y Cajal. This is related to neuroplasticity.

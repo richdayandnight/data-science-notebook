@@ -10,7 +10,7 @@
 
 ## Quotes
 - We can make significant changes in our brain by changing how we think.
-- Taking responsibility of our own learning is one of the most important things we can do.
+- **Taking responsibility of our own learning is one of the most important things we can do.**
 - Virtue of the less brilliant: perseverance
 - "The first principle is that you must not fool yourself- and you are the easiest person to fool." - Richart Feynman
 
@@ -19,7 +19,7 @@
 - Acc to neuroscientist, Vilayanur S. Ramachandran - the right hemisphere serves as a devil's advocate to question the status quo and look for global inconsistencies, while the left hemisphere clings to the way things were
 
 
-## How to prepare for a test: Test Checklist
+## How to prepare for a test: Test Checklist (developed by Richard Felder)
 1. Did you make a serious effort to understand the text?
 2. Did you work with classmates on homework problems?
 3. Did you attempt to outline every homework problem solution?
