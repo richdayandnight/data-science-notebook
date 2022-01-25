@@ -14,8 +14,10 @@ Measure Association
     - $$ Confidence = \frac{freq(A,B)}{freq(A)} $$
     - How often the items A and B occur together
 3. Lift
-    - $$ Lift = \frac{Support}{Supp(A) x Supp(B)}
-    - If the denominator of lift is more, means the accurrance of randomness is more than the accurrance of any association
+    - $$ Lift = \frac{Support(A \cup B)}{Supp(A) x Supp(B)}
+- 
+- If the denominator of lift is more, means the accurrance of randomness is more than the accurrance of any association
+- The likelihood of buying a Burger and Ketchup together is 3.33 times more than the likelihood of just buying the ketchup.
 
 Example:
 Given set of transactions
