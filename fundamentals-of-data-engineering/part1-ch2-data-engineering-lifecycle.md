@@ -49,7 +49,7 @@
 ### Schema
 - Fixed Schema
 - Schemaless
-  - Schemaless doesn't mean the absence of scheme
+  - Schemaless doesn't mean the absence of schema
   - It means the application defines the schema as data is written (ex. document database such as MongoDB)
 
 > Challenge: Schema changes over time. Refer to Chapter 6 and 8 for data modeling on schemas and data modeling.
@@ -57,3 +57,23 @@
 ## 2. Storage
 
 - Choosing a storage solution is key to success in the rest of the data lifecycle
+- Questions data engineers must consider/ask when choosing a storage system for a data warehoue, data lakehoue, database, or object storage:
+  - Is this storage solution compatible with the architecture’s required write and read
+speeds?
+  - Will storage create a bottleneck for downstream processes?
+  - Do you understand how this storage technology works? Are you utilizing the storage system optimally or committing unnatural acts? For instance, are you applying a high rate of random access updates in an object storage system? (This is an antipattern with significant performance overhead.)
+  - Will this storage system handle anticipated future scale? You should consider all capacity limits on the storage system: total available storage, read operation rate, write volume, etc.
+  - Will downstream users and processes be able to retrieve data in the required service-level agreement (SLA)?
+  - Are you capturing metadata about schema evolution, data flows, data lineage,
+and so forth? Metadata has a significant impact on the utility of data. Metadata represents an investment in the future, dramatically enhancing discoverability and institutional knowledge to streamline future projects and architecture changes.
+  - Is this a pure storage solution (object storage), or does it support complex query patterns (i.e., a cloud data warehouse)?
+  - Is the storage system schema-agnostic (object storage)? Flexible schema (Cassandra)? Enforced schema (a cloud data warehouse)?
+  - How are you tracking master data, golden records data quality, and data lineage for data governance? (We have more to say on these in “Data Management” on page 50.)
+  - How are you handling regulatory compliance and data sovereignty? For example, can you store your data in certain geographical locations but not others?
+- Data Access Frequency
+  - Data access frequency will determine the temperature of your data
+  - Data that is most frequntly accessed is called *hot data*
+    - Hot data - commonly retrieved many times per day, perhaps even several times per second
+    - Lukewarm data - might be accessed every so often -- say, every week or month
+    - Cold data 
+      - seldom queried and is appropriate for storing in an archival system

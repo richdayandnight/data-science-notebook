@@ -66,12 +66,15 @@ What a beautiful and concise definition that is.
 ## Evolution of Data Engineer
 
 - 1980 - 2000
+  - Bill Inmon coining data warehoue in 1989
+  - IBM developed the relational database and Structured Query Language (SQL)
+  - Oracle popularized the tech (relational db; SQL)
 - Early 2000s birth of contemporry data engineering
   - Big data three V's
     - velocity
     - variety
     - volume
-  - Yahoo developed the open source Apaceh Hadoop
+  - Yahoo developed the open source Apache Hadoop
 - The 2000s and 2010s Big data engineering
   - List of tools
     - Hadoop
