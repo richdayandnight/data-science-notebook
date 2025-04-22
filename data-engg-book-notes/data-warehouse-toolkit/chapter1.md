@@ -69,13 +69,30 @@
 
 - Edge of a cube: product, market (geography), time
 - Points/smaller cube inside cube: sales volume or profit
-- 3NF models: normalized models
-- 3NF structures: useful in operational processing
+- 3NF models:
+
+  - normalized models
+  - 3NF structures: useful in operational processing (since update or insert transaction touches the database in only one place)
+  - difficult for BI queries (lots of join for example)
 - Users can't understand/remember 3NF models that resembles a map of the Los Angeles freeway system
+- Star Schemas VS OLAP Cubes
 
-page 44 - 71
+  - Star Schema
+    - relational database management system
+  - OLAP Cube
+  - - multidimensional database environment
+    - physical implementation
+      - cubes deliver superior query performance because of precaulculations, indexing strategies, and other optimizations
+    - star schema is a good physical foundation for building an OLAP cube
+- 2 Key Components of a star schema
 
-Star Schemas VS OLAP Cubes
+  - 1.Fact table
+    - stores performance measurements resulting from an organization's business process events
+    - Fact
+      - represents a business measure
+    - Grain
+      - specific level of detail
+- OLAP cube is different from OLAP
 
 ## Summary
 

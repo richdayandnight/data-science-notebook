@@ -9,10 +9,12 @@
   - focus on data warehousing and data intelligence
   - taught dimensional best practices to thousands of students
 
-### Skimming contents
+### Skimming Table of Contents
 
 - Chapter 1: Intro to data warehousing, business intelligence, and dimensional modeling
+  - core vocabulary established to be used throughout the book
 - Chapter 2: Modeling Techniques Overview
+  - more than 75 dimensional modeling techniques
 - Chapter 3-16: Case Studies
   - Retail Sales
   - Inventory
@@ -34,3 +36,46 @@
   - ETL Subsystems and Techniques
   - ETL System Design and Development Process and Tasks
 - Chapter 21: Big Data Overview (Analytics)
+
+## Introduction
+
+- Dimensional modeling
+  - accepted as mainstream/ dominant technique for DW/BI presentation
+  - "Simplicity is the fundamental key that allows users to easily understand databases and software to efficiently navigate databases"
+  - Concepts mentioned that withstood the test of time:
+    - conformed dimensions
+    - slowly changing dimensions
+    - heterogeneous products
+    - factless fact tables
+    - enterprise data warehouse bus matrix
+  - Intended audience
+    - data stewards
+    - all members of project team
+      - goal: to be conversant in dimensional modeling
+  - impact of dimensional model:
+    - beginning with the translation of business requirements up to data warehouse
+  - Book is written
+    - with broad audience in mind
+    - non-denominational: db engine agnostic
+
+## Vocabulary mentioned
+
+- date dimension
+- degenerate dimension
+- snowflaking
+- surrogate keys
+- 3 fundamental types of fact tables
+  - transaction
+  - periodic snapshot
+  - accumulating snapshot
+- slowly changing dimension
+- accounting
+  - year-to-date facts
+  - multiple fiscal calendars
+  - consolidated fact tables
+  - dimension attribute hierarchies
+    - simple denormalized fixed depth hierarchies
+    - bridge tables (for multivalued dimension attributes)
+- when a dimensional table begins to behave like a fact table
+- supertype schema
+- subtype schemas
